@@ -1,0 +1,15 @@
+{
+  "required": true,
+  "package": "gg.cofl.extendedenchantmentrange.mixin",
+  "compatibilityLevel": "JAVA_21",
+  "mixins": [
+    "EnchantingTableBlockAccessor",
+    "EnchantingTableBlockMixin"
+  ],
+  "injectors": {
+    "defaultRequire": 1
+  },
+  "overwrites": {
+    "requireAnnotations": true
+  }
+}

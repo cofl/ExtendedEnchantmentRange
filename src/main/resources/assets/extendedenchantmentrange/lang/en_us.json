@@ -1,0 +1,10 @@
+{
+  "extendedenchantmentrange.configuration.title": "Extended Enchantment Range Configs",
+  "extendedenchantmentrange.configuration.section.cofltweaks.common.toml": "Extended Enchantment Range Configs",
+  "extendedenchantmentrange.configuration.section.cofltweaks.common.toml.title": "Extended Enchantment Range Configs",
+  "extendedenchantmentrange.configuration.minimumHorizontalDistance": "Minimum Horizontal Distance",
+  "extendedenchantmentrange.configuration.minimumVerticalDistance": "Minimum Vertical Distance",
+  "extendedenchantmentrange.configuration.maximumHorizontalDistance": "Maximum Horizontal Distance",
+  "extendedenchantmentrange.configuration.maximumAboveDistance": "Maximum Above Distance",
+  "extendedenchantmentrange.configuration.maximumBelowDistance": "Maximum Below Distance"
+}
