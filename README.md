@@ -1,3 +1,5 @@
+![A cave with a fully-powered enchantment table, showing bookshelves hanging above the normal enchantment area.](./docs/sample-image.png)
+
 Extended Enchantment Range alters the distance at which an enchantment table can detect bookshelves.
 
 By default, it extended the horizontal range by an additional 2 blocks, and the vertical range by 3 blocks up and
