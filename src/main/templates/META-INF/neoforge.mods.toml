@@ -11,6 +11,7 @@ authors="cofl"
 description='''
 Alters how enchantment tables search for valid bookshelves, increasing the range at which they will be detected.
 '''
+logoFile="logo.png"
 
 [[mixins]]
 config="${mod_id}.mixins.json"
