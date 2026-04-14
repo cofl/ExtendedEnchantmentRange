@@ -7,12 +7,13 @@ import net.minecraft.core.BlockPos;
 import net.minecraft.tags.BlockTags;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.Blocks;
-import net.minecraft.world.level.block.EnchantingTableBlock;
+import net.minecraft.world.level.block.EnchantmentTableBlock;
 import org.spongepowered.asm.mixin.*;
 
-@Mixin(EnchantingTableBlock.class)
+@Mixin(EnchantmentTableBlock.class)
 public abstract class EnchantingTableBlockMixin {
     @WrapMethod(method = "isValidBookShelf")
+    @Unique
     private static boolean isValidBookshelf(Level level, BlockPos enchantingTablePos, BlockPos bookshelfPos, Operation<Boolean> _original) {
         final var blockPos = enchantingTablePos.offset(bookshelfPos);
         final var block = level.getBlockState(blockPos);

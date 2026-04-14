@@ -3,14 +3,10 @@ package gg.cofl.extendedenchantmentrange;
 import com.mojang.logging.LogUtils;
 import gg.cofl.extendedenchantmentrange.mixin.EnchantingTableBlockAccessor;
 import net.minecraft.core.BlockPos;
-import net.neoforged.bus.api.IEventBus;
-import net.neoforged.bus.api.SubscribeEvent;
-import net.neoforged.fml.ModContainer;
-import net.neoforged.fml.common.Mod;
-import net.neoforged.fml.config.ModConfig;
-import net.neoforged.fml.event.config.ModConfigEvent;
-import net.neoforged.fml.event.lifecycle.FMLCommonSetupEvent;
-import net.neoforged.neoforge.common.NeoForge;
+import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
+import net.minecraftforge.fml.config.ModConfig;
+import net.minecraftforge.fml.common.Mod;
+import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
 import org.slf4j.Logger;
 
 @Mod(ExtendedEnchantmentRange.MODID)
@@ -18,18 +14,19 @@ public class ExtendedEnchantmentRange {
     public static final String MODID = "extendedenchantmentrange";
     public static final Logger LOGGER = LogUtils.getLogger();
 
-    public ExtendedEnchantmentRange(IEventBus modEventBus, ModContainer modContainer) {
+    public ExtendedEnchantmentRange(FMLJavaModLoadingContext context) {
+        var modEventBus = context.getModEventBus();
         modEventBus.addListener(this::commonSetup);
-        modContainer.registerConfig(ModConfig.Type.COMMON, Config.SPEC);
+        context.registerConfig(ModConfig.Type.COMMON, Config.SPEC);
     }
 
     private void commonSetup(FMLCommonSetupEvent event){
         setOffsets(
-                Config.MINIMUM_HORIZONTAL_DISTANCE.getAsInt(),
-                Config.MINIMUM_VERTICAL_DISTANCE.getAsInt(),
-                Config.MAXIMUM_HORIZONTAL_DISTANCE.getAsInt(),
-                Config.MAXIMUM_ABOVE_DISTANCE.getAsInt(),
-                Config.MAXIMUM_BELOW_DISTANCE.getAsInt()
+                Config.MINIMUM_HORIZONTAL_DISTANCE.get(),
+                Config.MINIMUM_VERTICAL_DISTANCE.get(),
+                Config.MAXIMUM_HORIZONTAL_DISTANCE.get(),
+                Config.MAXIMUM_ABOVE_DISTANCE.get(),
+                Config.MAXIMUM_BELOW_DISTANCE.get()
         );
     }
 
