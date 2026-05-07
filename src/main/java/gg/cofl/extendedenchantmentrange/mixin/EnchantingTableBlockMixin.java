@@ -35,9 +35,12 @@ public abstract class EnchantingTableBlockMixin {
                     final var state = level.getBlockState(pos);
                     if (state.is(Blocks.ENCHANTING_TABLE)) {
                         found.setFound(true);
-                        return false;
+                        return BlockPos.TraversalNodeStatus.STOP;
                     }
-                    return state.getEnchantPowerBonus(level, pos) != 0.0F || level.getBlockState(pos).is(BlockTags.ENCHANTMENT_POWER_TRANSMITTER);
+                    if(state.getEnchantPowerBonus(level, pos) != 0.0F || level.getBlockState(pos).is(BlockTags.ENCHANTMENT_POWER_TRANSMITTER)){
+                        return BlockPos.TraversalNodeStatus.ACCEPT;
+                    }
+                    return BlockPos.TraversalNodeStatus.SKIP;
                 });
         return found.isFound();
     }
